@@ -16,6 +16,7 @@ To run a cluster inspection, you must be associated with the
 cluster.edit role in the cluster.
 
 **Start a Cluster Inspection**
+
 To intiate an inspection to verify the conformance of a cluster, follow
 the following steps: 
 
@@ -45,6 +46,7 @@ You may download the generated report to assess and address any issues that aris
 
 
 **Stop a Cluster Inspection**
+
 You have the option to stop a running inspection, after it has started.
 In the left navigation pane of the Tanzu Mission Control console, click Inspections.
 The Inspections page lists the clusters that have been inspected along 
@@ -54,6 +56,7 @@ Locate your cluster in the list of inspections, and then click the cluster.
 On the Overview tab of the cluster detail page, in the Inspection box, click Cancel Inspection.
 
 **View and Download Inspection Results**
+
 Once an inspection is finished, you may view and download the results of 
 inspections that you have run, by following the steps below: 
 
