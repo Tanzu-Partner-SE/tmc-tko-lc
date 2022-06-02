@@ -15,7 +15,7 @@ and automated deployment, cannot be achieved.
 To run a cluster inspection, you must be associated with the 
 cluster.edit role in the cluster.
 
-#### **Start a Cluster Inspection**
+**Start a Cluster Inspection**
 To intiate an inspection to verify the conformance of a cluster, follow
 the following steps: 
 
@@ -44,7 +44,7 @@ When you click Run Inspection, the inspection starts and you are directed back t
 You may download the generated report to assess and address any issues that arise. 
 
 
-### **Stop a Cluster Inspection**
+**Stop a Cluster Inspection**
 You have the option to stop a running inspection, after it has started.
 In the left navigation pane of the Tanzu Mission Control console, click Inspections.
 The Inspections page lists the clusters that have been inspected along 
@@ -53,7 +53,7 @@ have inspections that are currently running.
 Locate your cluster in the list of inspections, and then click the cluster.
 On the Overview tab of the cluster detail page, in the Inspection box, click Cancel Inspection.
 
-### **View and Download Inspection Results**
+**View and Download Inspection Results**
 Once an inspection is finished, you may view and download the results of 
 inspections that you have run, by following the steps below: 
 
@@ -90,6 +90,7 @@ tmc cluster inspection scan list --cluster-name {{ session_namespace }}-cluster
 tmc cluster inspection scan list --cluster-name tko-tmc-day1-w01-s014-cluster -o json | jq '.scans[].status.conditions.READY'
 
 Finally delete the inspection: 
+
 ```execute-1
 tmc cluster inspection scan delete $(tmc cluster inspection scan list --cluster-name {{ session_namespace }}-cluster -o json | jq -r '.scans[0].fullName.name') --cluster-name {{ session_namespace }}-cluster 
 ```
