@@ -23,6 +23,6 @@ tmc clustergroup delete {{ session_namespace }}-cg
 * Delete {{ session_namespace }}-ws Workspace
 
 ```execute-1
-tmc workspace create -n {{ session_namespace }}-ws
+tmc workspace delete -n {{ session_namespace }}-ws
 ```
-* All exercises and guides of this workshop are available in this Github Repo https://github.com/Tanzu-Partner-SE/tko-guide/tree/main/day-01
+* All exercises and guides of this workshop are available in this Github Repo https://github.com/Tanzu-Partner-SE/tko-guide/tree/main/workshop2
