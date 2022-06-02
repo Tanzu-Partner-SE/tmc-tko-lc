@@ -73,11 +73,11 @@ while the Result field shows the status of the inspection
 by clicking the Actions dropdown at the top of the inspection detail page, 
 and then choosing Download.
 
-For this exericse, download the Lite inspection result that was generated 
+For this exercise, download the Lite inspection result that was generated 
 earlier.
 
 
-* Now let us use TMC CLI to create a Lite inspection on the cluster: *{{ session_namespace }}-cluster*:
+* Now let us use TMC CLI to create a Lite inspection on the cluster: **{{ session_namespace }}-cluster**:
 
 ```execute-1
 tmc cluster inspection scan create -m attached -c {{ session_namespace }}-cluster -p attached --inspection-type=LITE
@@ -90,7 +90,9 @@ tmc cluster inspection scan list --cluster-name {{ session_namespace }}-cluster
 ```
 * Check the Status of your inspection 
 
-tmc cluster inspection scan list --cluster-name tko-tmc-day1-w01-s014-cluster -o json | jq '.scans[].status.conditions.READY'
+```execute-1
+tmc cluster inspection scan list --cluster-name {{ session_namespace }}-cluster -o json | jq '.scans[].status.conditions.READY'
+```
 
 Finally delete the inspection: 
 
