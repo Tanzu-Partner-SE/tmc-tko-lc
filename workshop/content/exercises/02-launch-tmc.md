@@ -42,3 +42,7 @@ tmc login -n {{ session_namespace }} --no-configure
 ```execute-1
 tmc system context configure -l "log" -m attached -p attached
 ```
+
+```workshop:copy-and-edit
+text: tmc system context configure -l "log" -m {{ session_namespace }}-mgmt -p <put you vSphere namespace here>
+```
