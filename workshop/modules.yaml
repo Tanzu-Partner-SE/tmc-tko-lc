@@ -7,29 +7,35 @@ modules:
     exit_sign: Launch the TMC Console
   exercises/02-launch-tmc:
     name: Launch the TMC Console
+    exit_sign: Register your Management Cluster
+  exercises/03-register-mgmt-cluster:
+    name: Register your Management Cluster
+    exit_sign: Provision a Cluster in vSphere with Tanzu
+  exercises/04-create-tkc-tmc:
+    name: Provision a Cluster in vSphere with Tanzu
     exit_sign: Access Policies
-  exercises/03-access-policies:
+  exercises/05-access-policies:
     name: Access Policies
     exit_sign: Image Registry Policies
-  exercises/04-image-policies:
+  exercises/06-image-policies:
     name: Image Registry Policies
     exit_sign: Network Policies
-  exercises/05-network-policies:
+  exercises/07-network-policies:
     name: Network Policies
     exit_sign: Security Policies
-  exercises/06-security-policies:
+  exercises/08-security-policies:
     name: Security Policies
     exit_sign: Quota Policies
-  exercises/07-quota-policies:
+  exercises/09-quota-policies:
     name: Quota Policies
     exit_sign: Custom Policies
-  exercises/08-custom-policies:
+  exercises/10-custom-policies:
     name: Custom Policies
     exit_sign: Cluster Inspection
-  exercises/09-inspection:
+  exercises/11-inspection:
     name: Cluster Inspection
     exit_sign: Data Protection
-  exercises/10-data-protection:
+  exercises/12-data-protection:
     name: Data Protection
     exit_sign: Workshop Summary
   workshop-summary:

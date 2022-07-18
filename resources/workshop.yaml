@@ -14,12 +14,56 @@ spec:
   content:
     files: github.com/Tanzu-Partner-SE/tmc-tko-lc?ref=main
     image: harbor.mytanzusandbox.com/learningcenter/tko-day1:0.0.5
+  environment:
+    objects:
+      - apiVersion: policy/v1beta1
+        kind: PodSecurityPolicy
+        metadata:
+          name: aa-$(workshop_namespace)-security-policy
+        spec:
+          privileged: true
+          allowPrivilegeEscalation: true
+          # requiredDropCapabilities:
+          # - KILL
+          # - MKNOD
+          hostIPC: true
+          hostNetwork: true
+          hostPID: true
+          hostPorts: []
+          runAsUser:
+            rule: MustRunAsNonRoot
+          seLinux:
+            rule: RunAsAny
+          fsGroup:
+            rule: RunAsAny
+          supplementalGroups:
+            rule: RunAsAny
+          volumes:
+            - configMap
+            - downwardAPI
+            - emptyDir
+            - persistentVolumeClaim
+            - projected
+            - secret
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: ClusterRole
+        metadata:
+          name: $(workshop_namespace)-security-policy
+        rules:
+          - apiGroups:
+              - policy
+            resources:
+              - podsecuritypolicies
+            verbs:
+              - use
+            resourceNames:
+              - aa-$(workshop_namespace)-security-policy
   session:
     env:
       - name: VMWARE_CLOUD_ORG_NAME
-        value: "tanzu-emea"
+        value: "Partner - Tanzu SE Americas"
       - name: TMC_URL
-        value: "https://tanzuemea.tmc.cloud.vmware.com/"
+        value: "https://partnertanzuseamericas.tmc.cloud.vmware.com/"
       - name: DP_LOCATION
         value: "aws-s3-store"
     resources:
@@ -73,6 +117,19 @@ spec:
               min:
                 storage: 1Gi
               type: PersistentVolumeClaim
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          namespace: $(workshop_namespace)
+          name: $(session_namespace)-security-policy
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: $(workshop_namespace)-security-policy
+        subjects:
+          - kind: Group
+            namespace: $(workshop_namespace)
+            name: system:serviceaccounts:$(workshop_namespace)
       - apiVersion: v1
         kind: Service
         metadata:
@@ -99,8 +156,8 @@ spec:
         spec:
           virtualhost:
             fqdn: $(session_namespace)-petclinic.$(ingress_domain)
-            tls:
-              secretName: wildcard-lc-tls
+            # tls:
+            #   secretName: wildcard-lc-tls
           routes:
             - conditions:
                 - prefix: /

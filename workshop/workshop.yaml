@@ -5,12 +5,14 @@ modules:
     - workshop-overview
     - exercises/01-tmc-foundation
     - exercises/02-launch-tmc
-    - exercises/03-access-policies
-    - exercises/04-image-policies
-    - exercises/05-network-policies
-    - exercises/06-security-policies
-    - exercises/07-quota-policies
-    - exercises/08-custom-policies
-    - exercises/09-inspection
-    - exercises/10-data-protection
+    - exercises/03-register-mgmt-cluster
+    - exercises/04-create-tkc-tmc
+    - exercises/05-access-policies
+    - exercises/06-image-policies
+    - exercises/07-network-policies
+    - exercises/08-security-policies
+    - exercises/09-quota-policies
+    - exercises/10-custom-policies
+    - exercises/11-inspection
+    - exercises/12-data-protection
     - workshop-summary

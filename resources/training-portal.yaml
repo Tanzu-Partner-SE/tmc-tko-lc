@@ -7,7 +7,7 @@ metadata:
 spec:
   portal:
     ingress:
-      hostname: workshop.tko.mytanzusandbox.com
+      hostname: workshop
     password: C9fRFU9oRIoS
     registration:
       type: anonymous
@@ -18,7 +18,3 @@ spec:
       expires: 300m
       orphaned: 45m
       reserved: 1
-    - name: tap-workshop
-      capacity: 25
-      expires: 300m
-      orphaned: 45m
