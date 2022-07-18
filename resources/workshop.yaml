@@ -12,7 +12,7 @@ spec:
   duration: 15m
   url: https://github.com/Tanzu-Partner-SE/tmc-tko-lc
   content:
-    files: github.com/Tanzu-Partner-SE/tmc-tko-lc?ref=main
+    files: github.com/Tanzu-Partner-SE/tmc-tko-lc?ref=tkgs
     image: harbor.mytanzusandbox.com/learningcenter/tko-day1:0.0.5
   environment:
     objects:
