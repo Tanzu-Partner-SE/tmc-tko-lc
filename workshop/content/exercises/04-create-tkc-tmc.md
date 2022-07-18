@@ -54,7 +54,7 @@ tmc dataprotection provider backuplocation get {{ ENV_DP_LOCATION }} -o json | j
 
     c. You can optionally specify a proxy configuration to use for this cluster.
 
-    Note:
+    >**Note:**
     When provisioning a cluster in vSphere with Tanzu using a proxy, make sure the proxy configuration object includes the CIDRs for pod, ingress, and egress from the workload network of the Supervisor Cluster in the No proxy list.
 
     d. You can optionally select the default storage class for the cluster and allowed storage classes.
@@ -85,7 +85,7 @@ The primary difference between the two is that the highly available cluster is d
     d. To configure additional storage volumes for your node pool, click Add Volume.
 
     e. To provide labels for the nodes and cloud, enter the label and then click Add Label.
-    
+
 9. When you ready to provision the new cluster, click Create Cluster.
 
 On Tanzu Mission Control console, wait until the creation of your cluster is complete, and then the cluster **{{ session_namespace }}-cluster** state changes to **Healthy**

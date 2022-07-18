@@ -7,9 +7,9 @@ modules:
     exit_sign: Launch the TMC Console
   exercises/02-launch-tmc:
     name: Launch the TMC Console
-    exit_sign: Register your Management Cluster
+    exit_sign: Register your Management Cluster with TMC
   exercises/03-register-mgmt-cluster:
-    name: Register your Management Cluster
+    name: Register your Management Cluster with TMC
     exit_sign: Provision a Cluster in vSphere with Tanzu
   exercises/04-create-tkc-tmc:
     name: Provision a Cluster in vSphere with Tanzu
