@@ -14,9 +14,9 @@ When you register a management cluster, you create secure connection to Tanzu Mi
 
 ![](images/mgmtcluster-vspsher-reg-1.png)
 
-4. On the Register page, provide a name for the management cluster, and select a default cluster group for workload clusters.
+4. On the Register page, provide a name for the management cluster: `{{ session_namespace }}-mgmt`{{copy}}, and select a default cluster group for workload clusters.
 
-When you add workload clusters, you can choose the cluster group into which to place them. This setting simply indicates the default choice.
+    When you add workload clusters, you can choose the cluster group into which to place them. This setting simply indicates the default choice.
 
 5. You can optionally provide a description and labels for the management cluster.
 

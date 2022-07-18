@@ -31,18 +31,19 @@ tmc dataprotection provider backuplocation get {{ ENV_DP_LOCATION }} -o json | j
 1. In the left navigation pane of the Tanzu Mission Control console, click **Clusters**.
 2. On the Clusters page, click **Create Cluster**.
 3. Click to select your management cluster in which to create the new workload cluster, and then click **Continue to Create Cluster**.
-4. On the Create cluster page, select the provisioner in which you want to create the cluster.
-5. Enter the name: `{{ session_namespace }}-cluster`{{copy}}, group: `{{ session_namespace }}-cg`{{copy}}, and other details for the cluster.
+4. On the Create cluster page, select the provisioner/vSphere Namespace in which you want to create the cluster.
+5. Enter the name, group, and other details for the cluster.
 
-    a.Enter a name for the cluster.
+    a.Enter a name for the cluster `{{ session_namespace }}-cluster`{{copy}}.
 
     b.Cluster names must be unique within an organization.
 
-    c. Select the cluster group to which you want to attach your cluster.
+    c. Select the cluster group: **{{ session_namespace }}-cg** to which you want to attach your cluster .
 
     d. You can optionally enter a description and apply labels.
 
     e. Click Next.
+
 6. Select your configuration options.
 
     a. Select the Kubernetes version to use for the cluster.
@@ -61,12 +62,13 @@ tmc dataprotection provider backuplocation get {{ ENV_DP_LOCATION }} -o json | j
     The list of storage classes that you can choose from is taken from your vSphere namespace.
 
     e. Click Next.
+
 7. Select the type of cluster you want to create.
 The primary difference between the two is that the highly available cluster is deployed with multiple control plane nodes.
 
-    a. Choose the cluster type.
+    a. Choose the cluster type **Single node**.
 
-    b. You can optionally select a different instance type for the cluster's control plane node and its storage class.
+    b. You can optionally select a different instance type for the cluster's control plane node and its storage class. Chose **best-effort-small**
 
     c. You can optionally additional storage volumes for your control plane.
 
@@ -76,9 +78,9 @@ The primary difference between the two is that the highly available cluster is d
 
 8. You can optionally define the default node pool and create additional node pools for your cluster.
 
-    a. Specify the number of worker nodes to provision.
+    a. Specify the number of worker nodes to provision. Set the number of your worker nodes to **2**
 
-    b. Select the instance type for workload clusters.
+    b. Select the instance type for workload clusters. Chose **best-effort-large**
 
     c. Select the storage class.
 
@@ -91,6 +93,34 @@ The primary difference between the two is that the highly available cluster is d
 On Tanzu Mission Control console, wait until the creation of your cluster is complete, and then the cluster **{{ session_namespace }}-cluster** state changes to **Healthy**
 
 ![](images/tmc-attach.png)
+
+<b><u>Connect to *{{ session_namespace }}-cluster* with kubectl</u></b>
+
+<details>
+<summary><b>TMC Console</b></summary>
+<p>
+
+1. In the left navigation pane of the Tanzu Mission Control console, click Clusters.
+2. On the Clusters page, click ***{{ session_namespace }}-cluster***.
+3. On the cluster detail page, in the upper right corner, click Access this cluster.
+![](./images/cluster-access-1.png)
+4. In the resulting popup modal, click Download KUBECONFIG file. and save the downloaded YAML file in a location that is accessible to kubectl (for example, in `~/.kube/config` or in a location specified in the KUBECONFIG environment variable).
+![](./images/cluster-access-2.png)
+</p> 
+</details>
+
+<details>
+<summary><b>TMC CLI</b></summary>
+<p>
+
+```execute-1
+tmc cluster auth kubeconfig get {{ session_namespace }}-cluster > .kube/config 
+```
+</p> 
+</details>
+
+<p>
+</p>
 
 ```execute-1
 tmc cluster validate -k .kube/config
