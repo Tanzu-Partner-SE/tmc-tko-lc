@@ -55,7 +55,7 @@ kubectl apply -f ./petclinic-app/deployment.yaml -n app
 name: Console
 prefix: Console
 title: List pods in namespace app
-url: {{ingress_protocol}}://{{session_namespace}}-console.{{ingress_domain}}/#/pod?namespace=app
+url: {{ingress_protocol}}://{{session_namespace}}-console.{{ingress_domain}}/#/overview/namespace/app
 description: ""
 ```
 
