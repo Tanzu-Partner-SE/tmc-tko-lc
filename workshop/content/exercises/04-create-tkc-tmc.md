@@ -135,8 +135,9 @@ terraform apply -auto-approve
 
 </p> 
 </details>
-
-<b><u>Connect to *{{ session_namespace }}-cluster* with kubectl</u></b>
+<p>
+</p>
+<b>Connect to *{{ session_namespace }}-cluster* with kubectl</b>
 
 <details>
 <summary><b>TMC Console</b></summary>
