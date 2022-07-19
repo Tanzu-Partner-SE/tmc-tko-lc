@@ -90,6 +90,11 @@ name: PetclinicAPP
 url: http://petclinic.{{ session_namespace }}
 ```
 
+```dashboard:reload-dashboard
+name: PetclinicAPP
+url: http://petclinic.{{ session_namespace }}
+```
+
 1. Click FIND OWNERS -> Add Owner
 
 ![](./images/petclinic-1.png)
