@@ -110,6 +110,37 @@ On Tanzu Mission Control console, wait until the creation of your cluster is com
 </details>
 
 <details>
+<summary><b>Terraform</b></summary>
+<p>
+
+1. Please input your TMC API Token
+
+```terminal:input
+text: TMC API Token
+endl: false
+```
+2. Update the `main.tf` file with your `provisioner_name` and `storage_class` name 
+
+```editor:open-file
+file: ~/terraform/main.tf
+```
+
+3. Execute terraform init
+
+```execute-1
+cd terraform && terraform init
+```
+
+4. Run terraform apply to provision your TKC Cluster using terraform
+
+```execute-1
+terraform apply -auto-approve
+```
+
+</p> 
+</details>
+
+<details>
 <summary><b>TMC CLI</b></summary>
 <p>
 

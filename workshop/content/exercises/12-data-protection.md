@@ -51,11 +51,16 @@ url: {{ingress_protocol}}://{{session_namespace}}-console.{{ingress_domain}}/#/p
 description: ""
 ```
 
-* Open the Petclinic app and insert a new owner to list of the sample owners list 
+* Open the Petclinic app and insert a new owner to list of the sample owners list
+
+```execute-1
+export PETCLINIC_APP=$(kubectl get services --namespace app petclinic --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
+```
+
 
 ```dashboard:create-dashboard
 name: Petclinic APP
-url: {{ ingress_protocol }}://{{ session_namespace }}-petclinic.{{ ingress_domain }}
+url: http://$PETCLINIC_APP
 ```
 
 1. Click FIND OWNERS -> Add Owner

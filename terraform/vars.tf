@@ -1,0 +1,3 @@
+variable "session_name" {
+
+}
