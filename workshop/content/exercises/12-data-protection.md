@@ -87,7 +87,7 @@ EOF
 
 ```dashboard:create-dashboard
 name: PetclinicAPP
-url: petclinic.{{ session_namespace }}
+url: http://petclinic.{{ session_namespace }}
 ```
 
 1. Click FIND OWNERS -> Add Owner
