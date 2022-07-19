@@ -22,7 +22,7 @@ url: https://console.cloud.vmware.com
 3. Click the Tanzu Mission Control tile to open the Tanzu Mission Control console. After you have logged in, you can return directly to the Tanzu Mission Control console using the following URL.
 
 ```dashboard:open-url
-url: {{ ENV_TMC_URL }}
+url: {{ ENV_TMC_ENDPOINT }}
 ```
 
 **Authenticate to TMC CLI**

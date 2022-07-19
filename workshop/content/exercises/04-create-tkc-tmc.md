@@ -116,7 +116,7 @@ On Tanzu Mission Control console, wait until the creation of your cluster is com
 1. Please input your TMC API Token
 
 ```terminal:input
-text: TMC API Token
+text: export VMW_CLOUD_API_TOKEN=
 endl: false
 ```
 2. Update the `main.tf` file with your `provisioner_name` and `storage_class` name 

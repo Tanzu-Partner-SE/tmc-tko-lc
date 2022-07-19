@@ -1,5 +1,9 @@
 # #!/bin/bash
 
+export TF_VAR_session_name=$SESSION_NAME
+mkdir -p /opt/workshop/code-server/extensions
+
+/opt/code-server/bin/code-server --extensions-dir /opt/workshop/code-server/extensions --install-extension hashicorp.terraform
 # set -x
 # set +e
 

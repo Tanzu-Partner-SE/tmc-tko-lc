@@ -24,8 +24,6 @@ spec:
         value: "aws-s3-store"
       - name: VMW_CLOUD_ENDPOINT
         value: "console.cloud.vmware.com"
-      - name: TF_VAR_session_name
-        value: $SESSION_NAME
     resources:
       storage: 5Gi
       memory: 2Gi
