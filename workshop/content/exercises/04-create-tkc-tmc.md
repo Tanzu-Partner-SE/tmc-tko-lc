@@ -26,7 +26,11 @@ tmc dataprotection provider backuplocation update {{ ENV_DP_LOCATION }} --assign
 ```execute-1
 tmc dataprotection provider backuplocation get {{ ENV_DP_LOCATION }} -o json | jq  '.spec.assignedGroups[].clustergroup | select(.name=="{{ session_namespace }}-cg")'
 ```
-**Provision a Cluster in your vSphere Environment** 
+**Provision a Cluster in your vSphere Environment**
+
+<details>
+<summary><b>TMC Console</b></summary>
+<p>
 
 1. In the left navigation pane of the Tanzu Mission Control console, click **Clusters**.
 2. On the Clusters page, click **Create Cluster**.
@@ -93,19 +97,6 @@ The primary difference between the two is that the highly available cluster is d
 On Tanzu Mission Control console, wait until the creation of your cluster is complete, and then the cluster **{{ session_namespace }}-cluster** state changes to **Healthy**
 
 ![](images/tmc-attach.png)
-
-<b><u>Connect to *{{ session_namespace }}-cluster* with kubectl</u></b>
-
-<details>
-<summary><b>TMC Console</b></summary>
-<p>
-
-1. In the left navigation pane of the Tanzu Mission Control console, click Clusters.
-2. On the Clusters page, click ***{{ session_namespace }}-cluster***.
-3. On the cluster detail page, in the upper right corner, click Access this cluster.
-![](./images/cluster-access-1.png)
-4. In the resulting popup modal, click Download KUBECONFIG file. and save the downloaded YAML file in a location that is accessible to kubectl (for example, in `~/.kube/config` or in a location specified in the KUBECONFIG environment variable).
-![](./images/cluster-access-2.png)
 </p> 
 </details>
 
@@ -144,6 +135,23 @@ terraform apply -auto-approve
 
 </p> 
 </details>
+
+<b><u>Connect to *{{ session_namespace }}-cluster* with kubectl</u></b>
+
+<details>
+<summary><b>TMC Console</b></summary>
+<p>
+
+1. In the left navigation pane of the Tanzu Mission Control console, click Clusters.
+2. On the Clusters page, click ***{{ session_namespace }}-cluster***.
+3. On the cluster detail page, in the upper right corner, click Access this cluster.
+![](./images/cluster-access-1.png)
+4. In the resulting popup modal, click Download KUBECONFIG file. and save the downloaded YAML file in a location that is accessible to kubectl (for example, in `~/.kube/config` or in a location specified in the KUBECONFIG environment variable).
+![](./images/cluster-access-2.png)
+</p> 
+</details>
+
+
 
 <details>
 <summary><b>TMC CLI</b></summary>
