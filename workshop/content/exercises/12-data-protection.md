@@ -64,10 +64,16 @@ description: ""
 export PETCLINIC_APP=$(kubectl get services --namespace app petclinic --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
 ```
 
+```section:begin
+title: Demo App
+```
 
 ```dashboard:create-dashboard
 name: Petclinic APP
 url: http://{{ ENV_PETCLINIC_APP }}
+```
+
+```section:end
 ```
 
 1. Click FIND OWNERS -> Add Owner
