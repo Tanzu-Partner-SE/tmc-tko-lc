@@ -87,12 +87,12 @@ EOF
 ```
 
 ```dashboard:create-dashboard
-name: PetclinicAPP
+name: Petclinic APP
 url: {{ ingress_protocol }}://{{ session_namespace }}-petclinic.{{ ingress_domain }}
 ```
 
 ```dashboard:reload-dashboard
-name: PetclinicAPP
+name: Petclinic APP
 url: {{ ingress_protocol }}://{{ session_namespace }}-petclinic.{{ ingress_domain }}
 ```
 
