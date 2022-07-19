@@ -61,7 +61,7 @@ description: ""
 * Open the Petclinic app and insert a new owner to list of the sample owners list
 
 ```execute-1
-export PETCLINIC_APP=$(kubectl get services --namespace app petclinic --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export PETCLINIC_APP=http://$(kubectl get services --namespace app petclinic --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
 ```
 
 ```section:begin
@@ -70,11 +70,11 @@ title: Demo App
 
 ```dashboard:create-dashboard
 name: PetclinicAPP
-url: http://{{ ENV_PETCLINIC_APP }}
+url: {{ ENV_PETCLINIC_APP }}
 ```
 ```dashboard:reload-dashboard
 name: PetclinicAPP
-url: http://{{ ENV_PETCLINIC_APP }}
+url: {{ ENV_PETCLINIC_APP }}
 ```
 
 ```section:end
