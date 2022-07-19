@@ -113,12 +113,16 @@ On Tanzu Mission Control console, wait until the creation of your cluster is com
 <summary><b>Terraform</b></summary>
 <p>
 
-1. Please input your TMC API Token
+1. Set your TMC API Token as an environment variable 
 
 ```terminal:input
 text: export VMW_CLOUD_API_TOKEN=
 endl: false
 ```
+```terminal:input
+text: password
+```
+
 2. Update the `main.tf` file with your `provisioner_name` and `storage_class` name 
 
 ```editor:open-file

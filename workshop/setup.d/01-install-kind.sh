@@ -1,4 +1,4 @@
-# #!/bin/bash
+#!/bin/bash
 
 export TF_VAR_session_name=$SESSION_NAME
 mkdir -p /opt/workshop/code-server/extensions
