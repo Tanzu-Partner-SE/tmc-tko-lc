@@ -36,6 +36,13 @@ Now we will deploy the Petclinic Spring boot sample app with persistent data in 
 ```execute-1
 kubectl create namespace app
 ```
+* Create the required ClusterRoleBinding to deploy the Petclinic App
+
+```execute-1
+kubectl create clusterrolebinding default-tkg-admin-privileged-binding \
+--clusterrole=psp:vmware-system-privileged --group=system:authenticated
+```
+
 * Deploy the Petclinic app in app namespace **app**
 
 ```execute-1
@@ -60,7 +67,7 @@ export PETCLINIC_APP=$(kubectl get services --namespace app petclinic --output j
 
 ```dashboard:create-dashboard
 name: Petclinic APP
-url: http://$PETCLINIC_APP
+url: http://{{ ENV_PETCLINIC_APP }}
 ```
 
 1. Click FIND OWNERS -> Add Owner

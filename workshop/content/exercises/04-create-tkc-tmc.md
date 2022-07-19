@@ -159,8 +159,22 @@ terraform apply -auto-approve
 <summary><b>TMC CLI</b></summary>
 <p>
 
+1. Change your current directory to your Home directory
+
+```execute-1
+cd
+```
+
+2. Download your KUBECONFIG file 
+
 ```execute-1
 tmc cluster auth kubeconfig get {{ session_namespace }}-cluster > .kube/config 
+```
+
+3. Let's have a look on the downloaded KUBECONFIG
+
+```editor:open-file
+file: .kube/config 
 ```
 </p> 
 </details>
