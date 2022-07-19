@@ -108,7 +108,7 @@ spec:
         kind: HTTPProxy
         metadata:
           name: $(session_namespace)-petclinic
-          namespace: $(workshop_namespace)
+          namespace: $(session_namespace)
         spec:
           virtualhost:
             fqdn: $(session_namespace)-petclinic.$(ingress_domain)

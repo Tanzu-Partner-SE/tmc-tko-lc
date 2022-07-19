@@ -48,6 +48,7 @@ kubectl create clusterrolebinding default-tkg-admin-privileged-binding \
 ```execute-1
 kubectl apply -f ./petclinic-app/deployment.yaml -n app
 ```
+
 * Wait until the PODs in the **app** namespace are up and running 
 
 ```dashboard:reload-dashboard
@@ -61,7 +62,7 @@ description: ""
 * Open the Petclinic app and insert a new owner to list of the sample owners list
 
 ```execute-1
-export PETCLINIC_APP=http://$(kubectl get services --namespace app petclinic --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export PETCLINIC_APP=$(kubectl get services --namespace app petclinic --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
 cat <<'EOF' | kubectl create --kubeconfig=.kube/eduk8s -f -
 apiVersion: v1
 kind: Service
@@ -87,12 +88,12 @@ EOF
 
 ```dashboard:create-dashboard
 name: PetclinicAPP
-url: url: {{ ingress_protocol }}://{{ session_namespace }}-petclinic.{{ ingress_domain }}
+url: {{ ingress_protocol }}://{{ session_namespace }}-petclinic.{{ ingress_domain }}
 ```
 
 ```dashboard:reload-dashboard
 name: PetclinicAPP
-url: url: {{ ingress_protocol }}://{{ session_namespace }}-petclinic.{{ ingress_domain }}
+url: {{ ingress_protocol }}://{{ session_namespace }}-petclinic.{{ ingress_domain }}
 ```
 
 1. Click FIND OWNERS -> Add Owner
