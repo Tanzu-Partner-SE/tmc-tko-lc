@@ -37,8 +37,9 @@ If you don't have an API token to access TMC, see [How Do I Generate API Tokens]
 tmc login -n {{ session_namespace }} --no-configure
 ```
 
-* Configure environment defaults that make the CLI easier to use. 
+* Configure environment defaults that make the CLI easier to use. Replace `<put you vSphere namespace here>` place holder with your namespace
 
-```workshop:copy-and-edit
+```terminal:input
 text: tmc system context configure -l "log" -m {{ session_namespace }}-mgmt -p <put you vSphere namespace here>
+endl: false
 ```

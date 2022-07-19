@@ -31,5 +31,5 @@ RUN echo 'eduk8s  ALL=(ALL) /bin/su' >>  /etc/sudoers
 
 RUN curl -Lso /usr/bin/kind "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-linux-amd64" && \
     chmod +x /usr/bin/kind
-
+RUN code-server --install-extension hashicorp.terraform
 USER 1001

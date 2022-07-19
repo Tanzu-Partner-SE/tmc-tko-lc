@@ -113,14 +113,15 @@ On Tanzu Mission Control console, wait until the creation of your cluster is com
 <summary><b>Terraform</b></summary>
 <p>
 
-1. Set your TMC API Token as an environment variable 
+1. Set your TMC API Token and terraform variable as environment variables 
 
 ```terminal:input
 text: export VMW_CLOUD_API_TOKEN=
 endl: false
 ```
-```terminal:input
-text: password
+
+```execute-1
+export TF_VAR_session_name=$SESSION_NAME
 ```
 
 2. Update the `main.tf` file with your `provisioner_name` and `storage_class` name 

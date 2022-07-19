@@ -13,7 +13,7 @@ spec:
   url: https://github.com/Tanzu-Partner-SE/tmc-tko-lc
   content:
     files: github.com/Tanzu-Partner-SE/tmc-tko-lc?ref=tkgs
-    image: harbor.mytanzusandbox.com/learningcenter/tko-day1:0.0.6
+    image: harbor.mytanzusandbox.com/learningcenter/tko-day1:0.0.7
   session:
     env:
       - name: VMWARE_CLOUD_ORG_NAME

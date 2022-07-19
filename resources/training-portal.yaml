@@ -8,7 +8,7 @@ spec:
   portal:
     ingress:
       hostname: workshop
-    password: C9fRFU9oRIoS
+    password: VMware1!
     registration:
       type: anonymous
       enabled: true
