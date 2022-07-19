@@ -125,7 +125,7 @@ FIND OWNERS -> Find Owner
 * Let's make a backup of our Petclinic App
 
 ```execute-1
-tmc cluster dataprotection backup create -n petclinic-app-backup --include-namespaces app --backup-location-name aws-s3-store --cluster-name {{ session_namespace }}-cluster
+tmc cluster dataprotection backup create -n petclinic-app-backup --include-namespaces app --backup-location-name {{ ENV_DP_LOCATION }} --cluster-name {{ session_namespace }}-cluster
 ```
 * Check the STATUS of the **petclinic-app-backup** backup
 
