@@ -68,7 +68,7 @@ export PETCLINIC_APP=$(kubectl get services --namespace app petclinic --output j
 title: Demo App
 ```
 
-```dashboard:create-dashboard
+```dashboard:reload-dashboard
 name: Petclinic APP
 url: http://{{ ENV_PETCLINIC_APP }}
 ```
