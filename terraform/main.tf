@@ -1,14 +1,14 @@
 resource "tanzu-mission-control_cluster" "create_tkgs_workload" {
-  management_cluster_name = "${var.SESSION_NAMESPACE}-mgmt"
+  management_cluster_name = "${var.session_name}-mgmt"
   provisioner_name        = "<vSphere_namespace_here>"
-  name                    = "${var.SESSION_NAMESPACE}-tf"
+  name                    = "${var.session_name}-tf"
 
   meta {
     labels = { "key" : "test" }
   }
 
   spec {
-    cluster_group = "${var.SESSION_NAMESPACE}-cg"
+    cluster_group = "${var.session_name}-cg"
     tkg_service_vsphere {
       settings {
         network {
