@@ -87,12 +87,12 @@ EOF
 
 ```dashboard:create-dashboard
 name: PetclinicAPP
-url: http://petclinic.{{ session_namespace }}
+url: url: {{ ingress_protocol }}://{{ session_namespace }}-petclinic.{{ ingress_domain }}
 ```
 
 ```dashboard:reload-dashboard
 name: PetclinicAPP
-url: http://petclinic.{{ session_namespace }}
+url: url: {{ ingress_protocol }}://{{ session_namespace }}-petclinic.{{ ingress_domain }}
 ```
 
 1. Click FIND OWNERS -> Add Owner

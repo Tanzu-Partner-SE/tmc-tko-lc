@@ -41,82 +41,80 @@ spec:
         enabled: true
       docker:
         enabled: true
-    # objects:
-    #   - apiVersion: v1
-    #     kind: LimitRange
-    #     metadata:
-    #       name: resource-limits
-    #     spec:
-    #       limits:
-    #         - max:
-    #             cpu: "4"
-    #             memory: 10Gi
-    #           min:
-    #             cpu: 5m
-    #             memory: 32Mi
-    #           type: Pod
-    #         - default:
-    #             cpu: "2"
-    #             memory: 4Gi
-    #           defaultRequest:
-    #             cpu: 50m
-    #             memory: 128Mi
-    #           max:
-    #             cpu: "4"
-    #             memory: 10Gi
-    #           min:
-    #             cpu: 5m
-    #             memory: 32Mi
-    #           type: Container
-    #         - max:
-    #             storage: 10Gi
-    #           min:
-    #             storage: 1Gi
-    #           type: PersistentVolumeClaim
-    #   - apiVersion: rbac.authorization.k8s.io/v1
-    #     kind: RoleBinding
-    #     metadata:
-    #       namespace: $(workshop_namespace)
-    #       name: $(session_namespace)-security-policy
-    #     roleRef:
-    #       apiGroup: rbac.authorization.k8s.io
-    #       kind: ClusterRole
-    #       name: $(workshop_namespace)-security-policy
-    #     subjects:
-    #       - kind: Group
-    #         namespace: $(workshop_namespace)
-    #         name: system:serviceaccounts:$(workshop_namespace)
-    #   - apiVersion: v1
-    #     kind: Service
-    #     metadata:
-    #       labels:
-    #         learningcenter.tanzu.vmware.com/session.name: $(session_namespace)
-    #         app.name: wp
-    #       name: $(session_namespace)-petclinic
-    #       namespace: $(workshop_namespace)
-    #     spec:
-    #       ports:
-    #         - name: 30080-tcp
-    #           port: 30080
-    #           protocol: TCP
-    #           targetPort: 30080
-    #       selector:
-    #         deployment: $(session_namespace)
-    #       type: ClusterIP
+    objects:
+      #   - apiVersion: v1
+      #     kind: LimitRange
+      #     metadata:
+      #       name: resource-limits
+      #     spec:
+      #       limits:
+      #         - max:
+      #             cpu: "4"
+      #             memory: 10Gi
+      #           min:
+      #             cpu: 5m
+      #             memory: 32Mi
+      #           type: Pod
+      #         - default:
+      #             cpu: "2"
+      #             memory: 4Gi
+      #           defaultRequest:
+      #             cpu: 50m
+      #             memory: 128Mi
+      #           max:
+      #             cpu: "4"
+      #             memory: 10Gi
+      #           min:
+      #             cpu: 5m
+      #             memory: 32Mi
+      #           type: Container
+      #         - max:
+      #             storage: 10Gi
+      #           min:
+      #             storage: 1Gi
+      #           type: PersistentVolumeClaim
+      #   - apiVersion: rbac.authorization.k8s.io/v1
+      #     kind: RoleBinding
+      #     metadata:
+      #       namespace: $(workshop_namespace)
+      #       name: $(session_namespace)-security-policy
+      #     roleRef:
+      #       apiGroup: rbac.authorization.k8s.io
+      #       kind: ClusterRole
+      #       name: $(workshop_namespace)-security-policy
+      #     subjects:
+      #       - kind: Group
+      #         namespace: $(workshop_namespace)
+      #         name: system:serviceaccounts:$(workshop_namespace)
+      #   - apiVersion: v1
+      #     kind: Service
+      #     metadata:
+      #       labels:
+      #         learningcenter.tanzu.vmware.com/session.name: $(session_namespace)
+      #         app.name: wp
+      #       name: $(session_namespace)-petclinic
+      #       namespace: $(workshop_namespace)
+      #     spec:
+      #       ports:
+      #         - name: 30080-tcp
+      #           port: 30080
+      #           protocol: TCP
+      #           targetPort: 30080
+      #       selector:
+      #         deployment: $(session_namespace)
+      #       type: ClusterIP
 
-    #   - apiVersion: projectcontour.io/v1
-    #     kind: HTTPProxy
-    #     metadata:
-    #       name: $(session_namespace)-petclinic
-    #       namespace: $(workshop_namespace)
-    #     spec:
-    #       virtualhost:
-    #         fqdn: $(session_namespace)-petclinic.$(ingress_domain)
-    #         # tls:
-    #         #   secretName: wildcard-lc-tls
-    #       routes:
-    #         - conditions:
-    #             - prefix: /
-    #           services:
-    #             - name: $(session_namespace)-petclinic
-    #               port: 30080
+      - apiVersion: projectcontour.io/v1
+        kind: HTTPProxy
+        metadata:
+          name: $(session_namespace)-petclinic
+          namespace: $(workshop_namespace)
+        spec:
+          virtualhost:
+            fqdn: $(session_namespace)-petclinic.$(ingress_domain)
+          routes:
+            - conditions:
+                - prefix: /
+              services:
+                - name: petclinic
+                  port: 80
