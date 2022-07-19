@@ -168,6 +168,7 @@ cd
 2. Download your KUBECONFIG file 
 
 ```execute-1
+cp .kube/config .kube/eduk8s
 tmc cluster auth kubeconfig get {{ session_namespace }}-cluster > .kube/config 
 ```
 

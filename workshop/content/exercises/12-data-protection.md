@@ -62,22 +62,32 @@ description: ""
 
 ```execute-1
 export PETCLINIC_APP=http://$(kubectl get services --namespace app petclinic --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
-```
-
-```section:begin
-title: Demo App
+cat <<'EOF' | kubectl create --kubeconfig=.kube/eduk8s -f -
+piVersion: v1
+kind: Service
+metadata:
+  name: petclinic
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: petclinic
+subsets:
+  - addresses:
+      - ip: $PETCLINIC_APP
+    ports:
+      - port: 80
+EOF
 ```
 
 ```dashboard:create-dashboard
 name: PetclinicAPP
-url: {{ ENV_PETCLINIC_APP }}
-```
-```dashboard:reload-dashboard
-name: PetclinicAPP
-url: {{ ENV_PETCLINIC_APP }}
-```
-
-```section:end
+url: petclinic.{{ session_namespace }}
 ```
 
 1. Click FIND OWNERS -> Add Owner
