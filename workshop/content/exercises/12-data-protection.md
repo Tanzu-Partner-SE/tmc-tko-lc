@@ -69,11 +69,11 @@ title: Demo App
 ```
 
 ```dashboard:create-dashboard
-name: Petclinic APP
+name: PetclinicAPP
 url: http://{{ ENV_PETCLINIC_APP }}
 ```
 ```dashboard:reload-dashboard
-name: Petclinic APP
+name: PetclinicAPP
 url: http://{{ ENV_PETCLINIC_APP }}
 ```
 
