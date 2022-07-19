@@ -63,7 +63,7 @@ description: ""
 ```execute-1
 export PETCLINIC_APP=http://$(kubectl get services --namespace app petclinic --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
 cat <<'EOF' | kubectl create --kubeconfig=.kube/eduk8s -f -
-piVersion: v1
+apiVersion: v1
 kind: Service
 metadata:
   name: petclinic
