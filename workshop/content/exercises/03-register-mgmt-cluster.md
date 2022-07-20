@@ -2,6 +2,33 @@ As a platform operator, you can work with your Tanzu Kubernetes Grid administrat
 
 When you register a management cluster, you create secure connection to Tanzu Mission Control that allows you to subsequently bring its workload clusters under management, assign them to cluster groups, and apply policies. You can also manage the entire lifecycle of your clusters (including create, update, and delete) from Tanzu Mission Control.
 
+**Create and prepare your TMC resources**
+
+* Create your session's **Cluster Group: {{ session_namespace }}-cg**
+
+```execute-1
+tmc clustergroup create -n {{ session_namespace }}-cg
+```
+* Confirm that the cluster group **{{ session_namespace }}-cg** has been created    
+
+```execute-1
+tmc clustergroup get {{ session_namespace }}-cg 
+```
+   
+* Add your Cluster Group to the **{{ ENV_DP_LOCATION }}** Backup Location 
+
+```execute-1
+tmc dataprotection provider backuplocation update {{ ENV_DP_LOCATION }} --assigned-cluster-groups $(tmc dataprotection provider backuplocation get {{ ENV_DP_LOCATION }} -o json | jq -r '[.spec.assignedGroups[].clustergroup.name] + ["{{ session_namespace }}-cg"] | @csv')
+```
+
+* Confirm that the cluster group **{{ session_namespace }}-cg** has been added to **{{ ENV_DP_LOCATION }}** Backup Location 
+
+```execute-1
+tmc dataprotection provider backuplocation get {{ ENV_DP_LOCATION }} -o json | jq  '.spec.assignedGroups[].clustergroup | select(.name=="{{ session_namespace }}-cg")'
+```
+
+**Register your management cluster**
+
 1. In the Tanzu Mission Control console, click **_Administration_** in the left navigation pane.
 
 2. Click the **_Management clusters_** tab.

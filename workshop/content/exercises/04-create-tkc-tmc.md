@@ -2,30 +2,6 @@
 
 Use VMware Tanzu Mission Control to provision the necessary resources and create a new Tanzu Kubernetes cluster.
 
-**Create and prepare your TMC resources**
-
-* Create your session's **Cluster Group: {{ session_namespace }}-cg**
-
-```execute-1
-tmc clustergroup create -n {{ session_namespace }}-cg
-```
-* Confirm that the cluster group **{{ session_namespace }}-cg** has been created    
-
-```execute-1
-tmc clustergroup get {{ session_namespace }}-cg 
-```
-   
-* Add your Cluster Group to the **{{ ENV_DP_LOCATION }}** Backup Location 
-
-```execute-1
-tmc dataprotection provider backuplocation update {{ ENV_DP_LOCATION }} --assigned-cluster-groups $(tmc dataprotection provider backuplocation get {{ ENV_DP_LOCATION }} -o json | jq -r '[.spec.assignedGroups[].clustergroup.name] + ["{{ session_namespace }}-cg"] | @csv')
-```
-
-* Confirm that the cluster group **{{ session_namespace }}-cg** has been added to **{{ ENV_DP_LOCATION }}** Backup Location 
-
-```execute-1
-tmc dataprotection provider backuplocation get {{ ENV_DP_LOCATION }} -o json | jq  '.spec.assignedGroups[].clustergroup | select(.name=="{{ session_namespace }}-cg")'
-```
 **Provision a Cluster in your vSphere Environment**
 
 <details>
